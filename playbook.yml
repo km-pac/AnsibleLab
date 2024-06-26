@@ -16,8 +16,7 @@
       set_fact:
         int_detail: vyos_interfaces.stdout_lines
       debug:
-        msg: "{{ item | split(' ') | first }}"
-        loop: "{{ int_detail }}"
+        msg: "{{ int_detail }}"
 
     # - name: Parse and save data to variables
     #   set_fact:
