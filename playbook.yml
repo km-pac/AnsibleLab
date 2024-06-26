@@ -16,6 +16,7 @@
           - result[0] contains 'Interface'
       register: vyos_interfaces
 
+    - name: Parse output information
       set_fact:
         interfaces:
           - name: "{{ item.split()[0] }}"
