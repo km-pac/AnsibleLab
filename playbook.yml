@@ -6,7 +6,7 @@
   tasks:
     - name: Check router availability
       vyos.vyos.vyos_ping:
-        dest: "{{ hosts.hostname }}"
+        dest: "{{ inventory.hostname }}"
       register: ping_result
 
     - name: Perform interface check on devices
