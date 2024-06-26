@@ -8,11 +8,11 @@
       vyos.vyos.vyos_facts:
         gather_subset: all
         gather_network_resources: all
-    - name: Configure virtual interface address
-      vyos.vyos.vyos_vlan:
-        vlan_id: 100
-        interfaces: eth1
-        address: 172.26.100.37/24
+    # - name: Configure virtual interface address
+    #   vyos.vyos.vyos_vlan:
+    #     vlan_id: 100
+    #     interfaces: eth1
+    #     address: 172.26.100.37/24
 
 
 
