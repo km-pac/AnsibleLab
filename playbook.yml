@@ -4,7 +4,7 @@
   gather_facts: false
 
   tasks:
-    - name: Perform interface check on devices
+    - name: Perform interface check on Routers
       vyos.vyos.vyos_command:
         commands:
           - show interfaces
@@ -14,7 +14,7 @@
 
     - name: Display the inerfaces of the device
       debug:
-        msg: "{{ vyos_interfaces }}"
+        msg: "{{ vyos_interfaces.stdout_lines }}"
 
     # - name: Parse and save data to variables
     #   set_fact:
