@@ -10,12 +10,13 @@
           - show interfaces
         wait_for:
           - result[0] contains 'Interface'
-      register: vyos_interfaces
+      set_fact:
+        vyos_interfaces: vyos_interfaces.stdout_lines
 
     - name: Display the inerfaces of the device
       debug:
         msg: "{{ item | split(' ') | first }}"
-        loop: "{{ vyos_interfaces.stdout_lines }}"
+        loop: "{{ vyos_interfaces }}"
 
     # - name: Parse and save data to variables
     #   set_fact:
