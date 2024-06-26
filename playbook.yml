@@ -4,10 +4,13 @@
   tasks:
     - name: Check routers availability
       ping:
-    - name: Gather facts
+    - name: Gather Interfaces facts
       vyos.vyos.vyos_facts:
-        gather_subset: all
-        gather_network_resources: all
+        gather_subset:
+        - '!all'
+        - '!min'
+        gather_network_resources:
+        - interfaces
     # - name: Configure virtual interface address
     #   vyos.vyos.vyos_vlan:
     #     vlan_id: 100
