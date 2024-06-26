@@ -1,7 +1,20 @@
 ---
 - hosts: main-routers,branch-routers
   gather_facts: false
-  become: true
+  vars_prompt:
+    - name: username
+      private: false
+      prompt: "Input your username"
+    - name: password
+      prompt: "Input your password: "
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: vyos
+    ansible_user: "{{ username }}"
+    ansible_password: "{{ password }}"
+    authorize: true
+    transport: cli
+
   tasks:
     - name: Ping the hosts
       ping:
