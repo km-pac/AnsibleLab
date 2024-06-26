@@ -2,13 +2,24 @@
 - hosts: routers
   gather_facts: false
   tasks:
-    - name: Check routers availability
-      ping:
-    - name: Gather Interfaces facts
-      vyos.vyos.vyos_facts:
-        gather_network_resources:
-        - interfaces
+    # - name: Check routers availability
+    #   ping:
+
+    - name: Show assigned IP addresses for each interface
+      vyos.vyos.vyos_command:
+        commands:
+        - show interface
+        wait_for:
+        - result[0] contains 'Interface'
       register: vyos_interfaces
+
+    # - name: Gather Interfaces facts
+    #   vyos.vyos.vyos_facts:
+    #     gather_network_resources:
+    #     - interfaces
+    #   register: vyos_interfaces
+
+
     - name: Display facts
       debug:
         var: vyos_interfaces
