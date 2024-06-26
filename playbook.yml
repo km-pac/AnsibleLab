@@ -11,6 +11,11 @@
         - '!min'
         gather_network_resources:
         - interfaces
+      register: vyos_interfaces
+    - name: Display facts
+      debug:
+        var: vyos_interfaces
+        
     # - name: Configure virtual interface address
     #   vyos.vyos.vyos_vlan:
     #     vlan_id: 100
