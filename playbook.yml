@@ -2,21 +2,22 @@
 - name: Gather Routers Facts
   hosts: routers
   gather_facts: false
+
   tasks:
     - name: Perform interface check if device is reachable
       vyos.vyos.vyos_command:
         commands:
-        - show interface
+          - show interfaces
         wait_for:
-        - result[0] contains 'Interface'
+          - result[0] contains 'Interface'
       register: vyos_interfaces
-      debug:
-        msg: "{{ vyos_interfaces.stdout_lines }}"
       when: ansible_facts['reachable'] == true
 
-    - name: Display in not reachable
+    - name: Display if not reachable
       debug:
-        msg: "Device {{ hosts_hostname }} is not reachable!"
+        msg: "Device {{ inventory_hostname }} is not reachable!"
+      when: ansible_facts['reachable'] != true
+
         
     # - name: Configure virtual interface address
     #   vyos.vyos.vyos_vlan:
