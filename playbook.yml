@@ -14,7 +14,7 @@
 
     - name: Display the inerfaces of the device
       debug:
-        msg: "{{ int_detail }}"
+        msg: "{{ vyos_interfaces }}"
 
     # - name: Parse and save data to variables
     #   set_fact:
