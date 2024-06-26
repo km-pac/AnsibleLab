@@ -6,9 +6,6 @@
       ping:
     - name: Gather Interfaces facts
       vyos.vyos.vyos_facts:
-        gather_subset:
-        - '!all'
-        - '!min'
         gather_network_resources:
         - interfaces
       register: vyos_interfaces
