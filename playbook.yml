@@ -1,6 +1,8 @@
 ---
 - hosts: main-routers,branch-routers
   tasks:
+    - name: Ping the hosts
+      ping:
     - name: Gather Facts
       vyos.vyos.vyos_facts:
         gather_subset: config
