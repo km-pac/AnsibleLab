@@ -4,8 +4,8 @@
   gather_facts: false
 
   tasks:
-    - name: Check device availability
-      ping: 
+    - name: Check router availability
+      dest: "{{ hosts.hostname }}"
       register: ping_result
 
     - name: Perform interface check on devices
@@ -16,25 +16,25 @@
           - result[0] contains 'Interface'
       register: vyos_interfaces
 
-    - name: Parse and save data to variables
-      set_fact1:
-        interfaces_arr: []
-      loop: "{{ msg.splitlines() }}"
-      loop_control:
-        loop_var: line
-      when: line | regex_search('^\\w+\\s+\\d+\\.')
-      vars:
-        parsed_line: "{{ line.split() }}"
-      set_fact2:
-        interfaces_arr: "{{ interfaces + [{
-          'name': parsed_line[0],
-          'ip_address': parsed_line[1],
-          'status': parsed_line[2],
-          'description': parsed_line[3] | default('')}] }}"
+    # - name: Parse and save data to variables
+    #   set_fact:
+    #     interfaces_arr: []
+    #   loop: "{{ msg.splitlines() }}"
+    #   loop_control:
+    #     loop_var: line
+    #   when: line | regex_search('^\\w+\\s+\\d+\\.')
+    #   vars:
+    #     parsed_line: "{{ line.split() }}"
+    #   set_fact2:
+    #     interfaces_arr: "{{ interfaces + [{
+    #       'name': parsed_line[0],
+    #       'ip_address': parsed_line[1],
+    #       'status': parsed_line[2],
+    #       'description': parsed_line[3] | default('')}] }}"
 
-    - name: Display the interfaces of the device
-      debug:
-        var: interfaces
+    # - name: Display the interfaces of the device
+    #   debug:
+    #     var: interfaces
 
         
     # - name: Configure virtual interface address
