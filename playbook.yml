@@ -15,7 +15,15 @@
         wait_for:
           - result[0] contains 'Interface'
       register: vyos_interfaces
-      when: ping_result["failed"] == false
+
+      set_fact:
+        interfaces:
+          - name: "{{ item.split()[0] }}"
+            ip_address: "{{ item.split()[1] }}"
+            status: "{{ item.split()[2] }}"
+            description: "{{ item.split()[3] | default('') }}"
+      with_items: "{{ interface_info.msg[0] }}"
+      when: item does not contain 'Interface' or 'IP Address' or 'S/L' or 'Description' or '---'
     
     - name: Display the interfaces of the device
       debug:
