@@ -4,6 +4,12 @@
   gather_facts: false
 
   tasks:
+    - name: Check device availability
+      ping: 
+      register: ping_result
+      debug:
+        msg: ping_result
+
     - name: Perform interface check if device is reachable
       vyos.vyos.vyos_command:
         commands:
@@ -11,7 +17,7 @@
         wait_for:
           - result[0] contains 'Interface'
       register: vyos_interfaces
-      when: ansible_facts['reachable'] == true
+      when: ping_result contains ''
 
     - name: Display if not reachable
       debug:
