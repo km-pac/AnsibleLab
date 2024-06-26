@@ -1,8 +1,11 @@
 ---
-- hosts: main-routers, branch-routers
-
+- hosts: main-routers,branch-routers
   tasks:
     - name: Gather Facts
       vyos.vyos.vyos_facts:
-      gather_subset: all
-      gather_network_resources: all
+        gather_subset: all
+        gather_network_resources: all
+
+
+
+
