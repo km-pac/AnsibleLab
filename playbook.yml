@@ -3,8 +3,8 @@
   tasks:
     - name: Gather Facts
       vyos.vyos.vyos_facts:
-        gather_subset: all
-        gather_network_resources: all
+        gather_subset: ['!config']  
+        gather_network_resources: true
 
 
 
