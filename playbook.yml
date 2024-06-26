@@ -1,29 +1,50 @@
+# ---
+# - name: Gather Routers Facts
+#   hosts: routers
+#   gather_facts: false
+
+#   tasks:
+#     - name: Check device availability
+#       ping: 
+#       register: ping_result
+#     - name: Debug result
+#       debug:
+#         msg: ping_result
+
+#     - name: Perform interface check if device is reachable
+#       vyos.vyos.vyos_command:
+#         commands:
+#           - show interfaces
+#         wait_for:
+#           - result[0] contains 'Interface'
+#       register: vyos_interfaces
+#       when: ping_result | succeeded
+
+#     - name: Display if not reachable
+#       debug:
+#         msg: "Device {{ hosts_hostname }} is not reachable!"
+#       when: ping_result | failed
+
 ---
-- name: Gather Routers Facts
+- name: Check device reachability and perform task
   hosts: routers
   gather_facts: false
 
   tasks:
-    - name: Check device availability
-      ping: 
+    - name: Ping device to check reachability
+      ping:
       register: ping_result
-    - name: Debug result
-      debug:
-        msg: ping_result
 
-    - name: Perform interface check if device is reachable
-      vyos.vyos.vyos_command:
-        commands:
-          - show interfaces
-        wait_for:
-          - result[0] contains 'Interface'
-      register: vyos_interfaces
+    - name: Perform task if device is reachable
+      debug:
+        msg: "Performing task on {{ hosts_hostname }} because device is reachable."
       when: ping_result | succeeded
 
-    - name: Display if not reachable
+    - name: Perform task if device is not reachable
       debug:
-        msg: "Device {{ inventory_hostname }} is not reachable!"
-      when: ping_result | failed
+        msg: "Skipping task on {{ hosts_hostname }} because device is not reachable."
+      when: not ping_result | succeeded
+
 
         
     # - name: Configure virtual interface address
