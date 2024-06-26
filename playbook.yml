@@ -7,9 +7,6 @@
     - name: Check device availability
       ping: 
       register: ping_result
-    - name: Debug result
-      debug:
-        msg: ping_result
 
     - name: Perform interface check on devices
       vyos.vyos.vyos_command:
@@ -18,6 +15,10 @@
         wait_for:
           - result[0] contains 'Interface'
       register: vyos_interfaces
+    
+    - name: Display the interfaces of the device
+      debug:
+        msg: vyos_interfaces.stdout_lines
 
         
     # - name: Configure virtual interface address
