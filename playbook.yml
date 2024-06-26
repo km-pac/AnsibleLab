@@ -18,12 +18,12 @@
         wait_for:
           - result[0] contains 'Interface'
       register: vyos_interfaces
-      when: ping_result contains ''
+      when: ping_result | succeeded
 
     - name: Display if not reachable
       debug:
         msg: "Device {{ inventory_hostname }} is not reachable!"
-      when: ansible_facts['reachable'] != true
+      when: ping_result | failed
 
         
     # - name: Configure virtual interface address
