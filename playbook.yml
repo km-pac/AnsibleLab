@@ -3,8 +3,7 @@
   hosts: routers
   gather_facts: false
   tasks:
-
-    - name: Perform interface check
+    - name: Perform interface check if device is reachable
       vyos.vyos.vyos_command:
         commands:
         - show interface
