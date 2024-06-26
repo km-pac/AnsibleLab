@@ -16,21 +16,25 @@
           - result[0] contains 'Interface'
       register: vyos_interfaces
 
-    - name: Parse output information
-      set_fact:
-        - name: "{{ item.split()[0] }}"
-          ip_address: "{{ item.split()[1] }}"
-          status: "{{ item.split()[2] }}"
-          description: "{{ item.split()[3] | default('') }}"
-    
+    - name: Parse and save data to variables
+      set_fact1:
+        interfaces_arr: []
+      loop: "{{ msg.splitlines() }}"
+      loop_control:
+        loop_var: line
+      when: line | regex_search('^\\w+\\s+\\d+\\.')
+      vars:
+        parsed_line: "{{ line.split() }}"
+      set_fact2:
+        interfaces_arr: "{{ interfaces + [{
+          'name': parsed_line[0],
+          'ip_address': parsed_line[1],
+          'status': parsed_line[2],
+          'description': parsed_line[3] | default('')}] }}"
+
     - name: Display the interfaces of the device
       debug:
-        msg: 
-          - "{{ vyos_interfaces.stdout_lines }}"
-          - "{{ name.stdout_lines }}"
-          - "{{ ip_address.stdout_lines }}"
-          - "{{ status.stdout_lines }}"
-          - "{{ description:.stdout_lines }}"
+        var: interfaces
 
         
     # - name: Configure virtual interface address
