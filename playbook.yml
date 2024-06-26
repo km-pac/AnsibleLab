@@ -1,28 +1,23 @@
 ---
-- hosts: routers
+- name: Gather Routers Facts
+  hosts: routers
   gather_facts: false
   tasks:
-    # - name: Check routers availability
-    #   ping:
 
-    - name: Show assigned IP addresses for each interface
+    - name: Perform interface check
       vyos.vyos.vyos_command:
         commands:
         - show interface
         wait_for:
         - result[0] contains 'Interface'
       register: vyos_interfaces
-
-    # - name: Gather Interfaces facts
-    #   vyos.vyos.vyos_facts:
-    #     gather_network_resources:
-    #     - interfaces
-    #   register: vyos_interfaces
-
-
-    - name: Display facts
       debug:
         msg: "{{ vyos_interfaces.stdout_lines }}"
+      when: ansible_facts['reachable'] == true
+
+    - name: Display in not reachable
+      debug:
+        msg: "Device {{ inventory_hostname }} is not reachable!"
         
     # - name: Configure virtual interface address
     #   vyos.vyos.vyos_vlan:
