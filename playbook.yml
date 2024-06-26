@@ -3,9 +3,9 @@
   tasks:
     - name: Ping the hosts
       ping:
-    - name: Gather Facts
-      vyos.vyos.vyos_facts:
-        gather_subset: config
+    # - name: Gather Facts
+    #   vyos.vyos.vyos_facts:
+    #     gather_subset: config
 
 
 
