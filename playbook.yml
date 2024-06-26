@@ -6,4 +6,3 @@
       vyos.vyos.vyos_facts:
       gather_subset: all
       gather_network_resources: all
-
