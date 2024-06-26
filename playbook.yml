@@ -13,8 +13,6 @@
       register: vyos_interfaces
 
     - name: Display the inerfaces of the device
-      set_fact:
-        int_detail: vyos_interfaces.stdout_lines
       debug:
         msg: "{{ int_detail }}"
 
