@@ -14,7 +14,8 @@
 
     - name: Display the inerfaces of the device
       debug:
-        msg: "{{ vyos_interfaces.stdout_lines | split(' ') | first }}"
+        msg: "{{ item | split(' ') | first }}"
+        loop: "{{ vyos_interfaces.stdout_lines }}"
 
     # - name: Parse and save data to variables
     #   set_fact:
