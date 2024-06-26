@@ -22,7 +22,7 @@
 
     - name: Display facts
       debug:
-        var: vyos_interfaces
+        msg: "{{ vyos_interfaces.stdout_lines }}"
         
     # - name: Configure virtual interface address
     #   vyos.vyos.vyos_vlan:
