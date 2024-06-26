@@ -1,6 +1,7 @@
 ---
 - hosts: main-routers,branch-routers
   gather_facts: false
+  become: true
   tasks:
     - name: Ping the hosts
       ping:
