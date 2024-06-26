@@ -4,11 +4,6 @@
   gather_facts: false
 
   tasks:
-    - name: Check router availability
-      vyos.vyos.vyos_ping:
-        dest: "{{ inventory.hostname }}"
-      register: ping_result
-
     - name: Perform interface check on devices
       vyos.vyos.vyos_command:
         commands:
@@ -16,6 +11,10 @@
         wait_for:
           - result[0] contains 'Interface'
       register: vyos_interfaces
+
+    - name: Display the inerfaces of the device
+      debug:
+        msg: "{{ vyos_interfaces }}"
 
     # - name: Parse and save data to variables
     #   set_fact:
