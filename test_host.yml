@@ -15,7 +15,7 @@ labcenter:
       hosts:
         172.30.0.2
 
-DEALERS PC PROD:
+Tables:
   hosts:
     STG-ROULETTE:
       ansible_host: 192.168.1.1
