@@ -1,3 +1,20 @@
+---
+labcenter:
+  children:
+    main-routers:
+      hosts:
+        155.20.80.2:
+    main-firewalls:
+      hosts:
+        172.16.0.2:
+    branch-routers:
+      hosts:
+        120.30.10.3:
+        # 120.30.10.4:
+    branch-firewalls:
+      hosts:
+        172.30.0.2
+        
 all:
   hosts:
     STG-ROULETTE:
