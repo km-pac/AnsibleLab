@@ -13,6 +13,7 @@
       register: vyos_interfaces
 
     - name: Display the inerfaces of the device
+      
       debug:
         msg: "{{ vyos_interfaces.stdout_lines }}"
 

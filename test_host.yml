@@ -1,0 +1,42 @@
+all:
+  hosts:
+    STG-ROULETTE:
+      ansible_host: 192.168.1.1
+    SICBO-STG:
+      ansible_host: 192.168.1.2
+    BLACKJACK-STG:
+      ansible_host: 192.168.1.3
+    BACCARAT-A:
+      ansible_host: 192.168.1.4
+    BACCARAT-B:
+      ansible_host: 192.168.1.5
+    BACCARAT-C:
+      ansible_host: 192.168.1.6
+    BACCARAT-D:
+      ansible_host: 192.168.1.7
+    BACCARAT-E:
+      ansible_host: 192.168.1.8
+    BACCARAT-F:
+      ansible_host: 192.168.1.9
+    BACCARAT-G:
+      ansible_host: 192.168.1.10
+    BACCARAT-H:
+      ansible_host: 192.168.1.11
+    BACCARAT-I:
+      ansible_host: 192.168.1.12
+    DRAGON-TIGER-A:
+      ansible_host: 192.168.1.13
+    DRAGON-TIGER-B:
+      ansible_host: 192.168.1.14
+    ROULETTE-A:
+      ansible_host: 192.168.1.15
+    ROULETTE-B:
+      ansible_host: 192.168.1.16
+    ROULETTE-C:
+      ansible_host: 192.168.1.17
+    SICBO-A:
+      ansible_host: 192.168.1.18
+    SICBO-B:
+      ansible_host: 192.168.1.19
+    BLACKJACK-A:
+      ansible_host: 192.168.1.20

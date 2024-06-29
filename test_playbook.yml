@@ -1,0 +1,20 @@
+---
+- name: Collect IP addresses of all hosts
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Create list of IP addresses
+      set_fact:
+        ip_list: "{{ groups['all'] | map('extract', hostvars, ['ansible_host']) | list }}"
+
+    - name: Print the list of IP addresses
+      debug:
+        msg: "List of IP addresses: {{ ip_list }}"
+
+- name: Use IP addresses in another task
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Use IP addresses
+      debug:
+        msg: "Using IP addresses: {{ hostvars.localhost.ip_list }}"
