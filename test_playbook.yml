@@ -1,20 +1,28 @@
 ---
-- name: Collect IP addresses of all hosts
-  hosts: all
-  gather_facts: no
-  tasks:
-    - name: Create list of IP addresses
-      set_fact:
-        ip_list: "{{ groups['all'] | map('extract', hostvars, ['ansible_host']) | list }}"
-
-    - name: Print the list of IP addresses
-      debug:
-        msg: "List of IP addresses: {{ ip_list }}"
-
-- name: Use IP addresses in another task
+- name: Print IP address of a specific host
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: Use IP addresses
+    - name: Get IP address of STG-ROULETTE
+      set_fact:
+        stg_roulette_ip: "{{ hostvars['STG-ROULETTE'].ansible_host }}"
+
+    - name: Print IP address of STG-ROULETTE
       debug:
-        msg: "Using IP addresses: {{ hostvars.localhost.ip_list }}"
+        msg: "STG-ROULETTE IP address is {{ stg_roulette_ip }}"
+
+    - name: Get IP address of BLACKJACK-STG
+      set_fact:
+        blackjack_stg_ip: "{{ hostvars['BLACKJACK-STG'].ansible_host }}"
+
+    - name: Print IP address of BLACKJACK-STG
+      debug:
+        msg: "BLACKJACK-STG IP address is {{ blackjack_stg_ip }}"
+        
+    - name: Get IP address of BACCARAT-A
+      set_fact:
+        baccarat_a_ip: "{{ hostvars['BACCARAT-A'].ansible_host }}"
+
+    - name: Print IP address of BACCARAT-A
+      debug:
+        msg: "BACCARAT-A IP address is {{ baccarat_a_ip }}"
