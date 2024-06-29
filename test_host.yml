@@ -15,6 +15,11 @@ labcenter:
       hosts:
         172.30.0.2
 
+routers:
+  children:
+    main-routers:
+    branch-routers:
+
 tables:
   hosts:
     STG-ROULETTE:
