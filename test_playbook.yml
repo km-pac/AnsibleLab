@@ -1,6 +1,6 @@
 ---
 - name: Print IP address of a specific host
-  hosts: localhost
+  hosts: tables
   gather_facts: no
   tasks:
     - name: Extract IP address of of every TABLES

@@ -15,45 +15,45 @@ labcenter:
       hosts:
         172.30.0.2
 
-Tables:
+tables:
   hosts:
-    STG-ROULETTE:
-      ansible_host: 192.168.1.1
-    SICBO-STG:
-      ansible_host: 192.168.1.2
-    BLACKJACK-STG:
-      ansible_host: 192.168.1.3
-    BACCARAT-A:
-      ansible_host: 192.168.1.4
-    BACCARAT-B:
-      ansible_host: 192.168.1.5
-    BACCARAT-C:
-      ansible_host: 192.168.1.6
-    BACCARAT-D:
-      ansible_host: 192.168.1.7
-    BACCARAT-E:
-      ansible_host: 192.168.1.8
-    BACCARAT-F:
-      ansible_host: 192.168.1.9
-    BACCARAT-G:
-      ansible_host: 192.168.1.10
-    BACCARAT-H:
-      ansible_host: 192.168.1.11
-    BACCARAT-I:
-      ansible_host: 192.168.1.12
-    DRAGON-TIGER-A:
-      ansible_host: 192.168.1.13
-    DRAGON-TIGER-B:
-      ansible_host: 192.168.1.14
-    ROULETTE-A:
-      ansible_host: 192.168.1.15
-    ROULETTE-B:
-      ansible_host: 192.168.1.16
-    ROULETTE-C:
-      ansible_host: 192.168.1.17
-    SICBO-A:
-      ansible_host: 192.168.1.18
-    SICBO-B:
-      ansible_host: 192.168.1.19
-    BLACKJACK-A:
-      ansible_host: 192.168.1.20
+    STG-PROD-ROULETTE:
+      host_ip_address: 192.168.1.1
+    STG-PROD-SICBO:
+      host_ip_address: 192.168.1.2
+    STG-BLACKJACK:
+      host_ip_address: 192.168.1.3
+    PROD-BACCARAT-A:
+      host_ip_address: 192.168.1.4
+    PROD-BACCARAT-B:
+      host_ip_address: 192.168.1.5
+    PROD-BACCARAT-C:
+      host_ip_address: 192.168.1.6
+    PROD-BACCARAT-D:
+      host_ip_address: 192.168.1.7
+    PROD-BACCARAT-E:
+      host_ip_address: 192.168.1.8
+    PROD-BACCARAT-F:
+      host_ip_address: 192.168.1.9
+    PROD-BACCARAT-G:
+      host_ip_address: 192.168.1.10
+    PROD-BACCARAT-H:
+      host_ip_address: 192.168.1.11
+    PROD-BACCARAT-I:
+      host_ip_address: 192.168.1.12
+    PROD-DRAGON-TIGER-A:
+      host_ip_address: 192.168.1.13
+    PROD-DRAGON-TIGER-B:
+      host_ip_address: 192.168.1.14
+    PROD-ROULETTE-A:
+      host_ip_address: 192.168.1.15
+    PROD-ROULETTE-B:
+      host_ip_address: 192.168.1.16
+    PROD-ROULETTE-C:
+      host_ip_address: 192.168.1.17
+    PROD-SICBO-A:
+      host_ip_address: 192.168.1.18
+    PROD-SICBO-B:
+      host_ip_address: 192.168.1.19
+    PROD-BLACKJACK-A:
+      host_ip_address: 192.168.1.20
