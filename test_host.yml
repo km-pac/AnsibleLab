@@ -14,8 +14,8 @@ labcenter:
     branch-firewalls:
       hosts:
         172.30.0.2
-        
-all:
+
+DEALERS PC PROD:
   hosts:
     STG-ROULETTE:
       ansible_host: 192.168.1.1
