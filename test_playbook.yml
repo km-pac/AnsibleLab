@@ -9,6 +9,7 @@
           stg_roulette_ip: "{{ hostvars['STG-ROULETTE'].host_ip_address }}"
           stg_sicbo_ip: "{{ hostvars['STG-SICBO'].host_ip_address }}"
           stg_blackjack_ip: "{{ hostvars['STG-BLACKJACK'].host_ip_address }}"
+
           prod_bccA_ip: "{{ hostvars['PROD-BACCARAT-A'].host_ip_address }}"
           prod_bccB_ip: "{{ hostvars['PROD-BACCARAT-B'].host_ip_address }}"
           prod_bccC_ip: "{{ hostvars['PROD-BACCARAT-C'].host_ip_address }}"
@@ -22,9 +23,9 @@
           prod_dtB_ip: "{{ hostvars['PROD-DRAGON-TIGER-B'].host_ip_address }}"
           prod_rltA_ip: "{{ hostvars['PROD-ROULETTE-A'].host_ip_address }}"
           prod_rltB_ip: "{{ hostvars['PROD-ROULETTE-B'].host_ip_address }}"
-          prod_rltC_ip: "{{ hostvars['PROD-SICBO-A'].host_ip_address }}"
-          prod_sicA_ip: "{{ hostvars['PROD-SICBO-B'].host_ip_address }}"
-          prod_sicB_ip: "{{ hostvars['PROD-BLACKJACK-A'].host_ip_address }}"
+          prod_rltC_ip: "{{ hostvars['PROD-ROULETTE-C'].host_ip_address }}"
+          prod_sicA_ip: "{{ hostvars['PROD-SICBO-A'].host_ip_address }}"
+          prod_sicB_ip: "{{ hostvars['PROD-SICBO-B'].host_ip_address }}"
       
     - name: Print IP addresses of all specified hosts
       debug:
