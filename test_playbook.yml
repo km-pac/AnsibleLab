@@ -1,31 +1,32 @@
 ---
-- name: Print IP address of a specific host
-  hosts: tables
+- name: Print IP addresses of specific hosts
+  hosts: localhost
   gather_facts: no
   tasks:
-    - name: Extract IP address of of every TABLES
+    - name: Set IP addresses of all hosts
       set_fact:
         host_ips:
           stg_roulette_ip: "{{ hostvars['STG-ROULETTE'].host_ip_address }}"
-          stg_sicbo_ip: "{{ hostvars['STG-SICBO'].host_ip_address }}"
-          stg_blackjack_ip: "{{ hostvars['STG-BLACKJACK'].host_ip_address }}"
-          prod_bccA_ip: "{{ hostvars['PROD-BACCARAT-A'].host_ip_address }}"
-          prod_bccB_ip: "{{ hostvars['PROD-BACCARAT-B'].host_ip_address }}"
-          prod_bccC_ip: "{{ hostvars['PROD-BACCARAT-C'].host_ip_address }}"
-          prod_bccD_ip: "{{ hostvars['PROD-BACCARAT-D'].host_ip_address }}"
-          prod_bccE_ip: "{{ hostvars['PROD-BACCARAT-E'].host_ip_address }}"
-          prod_bccF_ip: "{{ hostvars['PROD-BACCARAT-F'].host_ip_address }}"
-          prod_bccG_ip: "{{ hostvars['PROD-BACCARAT-G'].host_ip_address }}"
-          prod_bccH_ip: "{{ hostvars['PROD-BACCARAT-H'].host_ip_address }}"
-          prod_bccI_ip: "{{ hostvars['PROD-BACCARAT-I'].host_ip_address }}"
-          prod_dtA_ip: "{{ hostvars['PROD-DRAGON-TIGER-A'].host_ip_address }}"
-          prod_dtB_ip: "{{ hostvars['PROD-DRAGON-TIGER-B'].host_ip_address }}"
-          prod_rltA_ip: "{{ hostvars['PROD-ROULETTE-A'].host_ip_address }}"
-          prod_rltB_ip: "{{ hostvars['PROD-ROULETTE-B'].host_ip_address }}"
-          prod_rltC_ip: "{{ hostvars['PROD-SICBO-A'].host_ip_address }}"
-          prod_sicA_ip: "{{ hostvars['PROD-SICBO-B'].host_ip_address }}"
-          prod_sicB_ip: "{{ hostvars['PROD-BLACKJACK-A'].host_ip_address }}"
-      
+          stg_sicbo_ip: "{{ hostvars['SICBO-STG'].host_ip_address }}"
+          stg_blackjack_ip: "{{ hostvars['BLACKJACK-STG'].host_ip_address }}"
+          prod_bccA_ip: "{{ hostvars['BACCARAT-A'].host_ip_address }}"
+          prod_bccB_ip: "{{ hostvars['BACCARAT-B'].host_ip_address }}"
+          prod_bccC_ip: "{{ hostvars['BACCARAT-C'].host_ip_address }}"
+          prod_bccD_ip: "{{ hostvars['BACCARAT-D'].host_ip_address }}"
+          prod_bccE_ip: "{{ hostvars['BACCARAT-E'].host_ip_address }}"
+          prod_bccF_ip: "{{ hostvars['BACCARAT-F'].host_ip_address }}"
+          prod_bccG_ip: "{{ hostvars['BACCARAT-G'].host_ip_address }}"
+          prod_bccH_ip: "{{ hostvars['BACCARAT-H'].host_ip_address }}"
+          prod_bccI_ip: "{{ hostvars['BACCARAT-I'].host_ip_address }}"
+          prod_dtA_ip: "{{ hostvars['DRAGON-TIGER-A'].host_ip_address }}"
+          prod_dtB_ip: "{{ hostvars['DRAGON-TIGER-B'].host_ip_address }}"
+          prod_rltA_ip: "{{ hostvars['ROULETTE-A'].host_ip_address }}"
+          prod_rltB_ip: "{{ hostvars['ROULETTE-B'].host_ip_address }}"
+          prod_rltC_ip: "{{ hostvars['ROULETTE-C'].host_ip_address }}"
+          prod_sicA_ip: "{{ hostvars['SICBO-A'].host_ip_address }}"
+          prod_sicB_ip: "{{ hostvars['SICBO-B'].host_ip_address }}"
+          prod_bjA_ip: "{{ hostvars['BLACKJACK-A'].host_ip_address }}"
+
     - name: Print IP addresses of all specified hosts
       debug:
         msg: "{{ item.key }} IP address is {{ item.value }}"
